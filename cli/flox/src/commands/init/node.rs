@@ -933,6 +933,12 @@ mod tests {
             }
         );
     }
+
+    // TODO: all the try_find_compatible_yarn() tests actually hit the database,
+    // and it might be better to mock out do_search().
+    // But I'm only seeing 6 tests take ~3 seconds,
+    // so at this point I think there are bigger testing efficiency fish to fry.
+
     static FLOX_INSTANCE: Lazy<(Flox, TempDir)> = Lazy::new(|| {
         let (flox, _temp_dir_handle) = test_flox_instance();
         let pkgdb_nixpkgs_rev_new = "ab5fd150146dcfe41fda501134e6503932cc8dfd";
